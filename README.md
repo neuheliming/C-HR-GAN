@@ -62,12 +62,12 @@ Test results will be saved to:
 This will translate SAR images (both snow-free and snow-covered) into optical images using the trained model.
 
 * The test SAR images are stored in:
-```
+
 ./datasets/Uragen/test_A/
 ```
 
-  * Snow-free SAR images: `S1` to `S3`
-  * Snow-covered SAR images: `S4` to `S6`
+* Snow-free SAR images: `S1` to `S3`
+* Snow-covered SAR images: `S4` to `S6`
 
 * The corresponding ground-truth optical images are stored in:
 
