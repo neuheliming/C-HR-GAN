@@ -70,9 +70,7 @@ This will translate SAR images (both snow-free and snow-covered) into optical im
 
 * The corresponding ground-truth optical images are stored in:
 
-  ```
   ./datasets/Uragen/test_B/
-  ```
 
   * Optical images: `O1` to `O6`
 
@@ -97,7 +95,7 @@ Additionally, we provide 3 optical images under snow-covered conditions (`O4_sno
 - VGG Perceptual Loss (optional)
 - **SSIM Structural Loss** ✅
 
----
+```
 
 
 ## 🙏 Acknowledgements
