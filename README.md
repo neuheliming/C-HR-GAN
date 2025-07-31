@@ -1,116 +1,108 @@
-# C-HR-GAN
 
-> **Concordance-High-Resolution generative adversarial network (C-HR-GAN)**
+# 🌨️ C-HR-GAN: Concordance-High-Resolution GAN
 
-C-HR-GAN is an enhanced version of pix2pixHD, designed for structurally Concordance-High-Resolution generative adversarial network image-to-image translation under challenging conditions such as snow cover terrain. It integrates **SSIM-based structural constraints** and **SE-ResNet blocks with learnable residual weighting**, yielding improved realism and geometric fidelity, especially for scientific and remote sensing applications.
+> **C-HR-GAN** is an enhanced image-to-image translation framework based on pix2pixHD, tailored for structurally consistent translation under complex conditions such as **snow-covered terrain**.
 
----
+It integrates:
 
-## 📌 Project Overview
+- **SSIM-based structural constraints**  
+- **SE-ResNet blocks with learnable residual weighting**  
 
-This project builds on [pix2pixHD](https://github.com/NVIDIA/pix2pixHD), introducing two major enhancements:
-
-### ✅ Key Improvements over pix2pixHD:
-
-1. **Structure-Aware GAN Loss (SSIM-enhanced)**:
-
-   - A novel loss formulation combining adversarial loss with structural similarity index (SSIM):
-     > `L_GAN + λ × (1 - SSIM)` (λ=2)
-   - Ensures the generated image is not only realistic but structurally aligned with the target (especially important for snow-covered rock mass surface detection).
-
-2. **SE-ResNet Residual Blocks**:
-
-   - Replaces standard ResNet blocks with **Squeeze-and-Excitation (SE)** based residual blocks.
-   - Introduces **learnable residual weight** for dynamic control of residual contribution.
-   - Enhances attention to informative features and structural regions.
+These innovations significantly improve **realism** and **geometric fidelity**, making the model especially suitable for scientific remote sensing applications like **rock mass surface detection under snow**.
 
 ---
 
-## 💻 Prerequisites
+## 📌 Project Highlights
 
-Step 1: Install PyTorch
-Please follow the official instructions to install PyTorch and its dependencies from:
+### 🔧 Enhancements over pix2pixHD
 
-👉 https://pytorch.org
+#### 1. Structure-Aware GAN Loss (SSIM-Enhanced)
 
-For example (CUDA 11.3, Linux):
+- Introduces a novel loss:
 
+  ```
+  L_GAN + λ × (1 - SSIM), where λ = 2
+  ```
+
+- Ensures that the generated images are not only visually realistic but also **structurally aligned** with the target.
+- Especially effective in snow-covered surface reconstruction tasks.
+
+#### 2. SE-ResNet Residual Blocks
+
+- Replaces standard ResNet blocks with **Squeeze-and-Excitation (SE)** residual blocks.
+- Introduces a **learnable residual weight** to adaptively control residual contributions.
+- Enhances attention to informative features and fine-grained structures in the scene.
+
+---
+
+## ⚙️ Setup Instructions
+
+### Step 1️⃣: Install PyTorch
+
+Please refer to the [official PyTorch website](https://pytorch.org) for installation instructions.
+
+Example (CUDA 11.3 on Linux):
+
+```bash
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu113
+```
 
-Step 2: Install Python libraries
-Install all required Python libraries using:
+### Step 2️⃣: Install Python Dependencies
 
+Run the following command to install all required Python packages:
+
+```bash
 pip install -r requirements.txt
 ```
+
 ---
 
+## 🚀 Testing Instructions
 
-## 🚀 Testing
+⚠️ **Important Note:**  
+The paired high-resolution SAR-optical dataset used for training is not publicly available due to security restrictions.
 
+If you need access to the **trained model weights (.pth)**, please **contact the corresponding author**.
 
-Due to security concerns, the paired high-resolution SAR-optical image dataset used during the training of the C-HR-GAN model is not publicly available. If you require the trained model weights (.pth file), please contact the corresponding author. Once obtained, place the file in the following directory:
+### 🔧 Preparation
 
+1. Place the trained weights at:
+
+```
 ./checkpoints/Uragen_SAR-to-optical
-To test the model, run:
+```
 
-python test.py --name Uragen_SAR-to-optical --no_instance --label_nc 0 --resize_or_crop none --dataroot ./datasets/Uragen
+2. Prepare your test SAR images (both snow-free and snow-covered) under:
+
+```
+./datasets/Uragen/test_A/
+```
+
+---
+
+### ▶️ Run Testing
+
+Execute the test script:
+
+```bash
+python test.py   --name Uragen_SAR-to-optical   --no_instance   --label_nc 0   --resize_or_crop none   --dataroot ./datasets/Uragen
+```
+
+---
+
+### 📁 Output Location
+
 Test results will be saved to:
 
+```
 ./results/Uragen_SAR-to-optical/test_latest/images
-
-This will translate SAR images (both snow-free and snow-covered) into optical images using the trained model.
-
-* The test SAR images are stored in:
-
-./datasets/Uragen/test_A/
-
-* Snow-free SAR images: `S1` to `S3`
-* Snow-covered SAR images: `S4` to `S6`
-
-* The corresponding ground-truth optical images are stored in:
-
-  ./datasets/Uragen/test_B/
-
-  * Optical images: `O1` to `O6`
-
-Additionally, we provide 3 optical images under snow-covered conditions (`O4_snow` to `O6_snow`) as references to illustrate the actual degree of snow occlusion in the original scenes.
----
-```
-## 🧪 Model Architecture Summary
-
-### Generator:
-
-- Based on pix2pixHD global generator
-- Enhanced with **SE-ResNet blocks**
-
-### Discriminator:
-
-- Multi-scale PatchGAN as in pix2pixHD
-
-### Losses:
-
-- Adversarial Loss (LSGAN or BCE)
-- Feature Matching Loss
-- VGG Perceptual Loss (optional)
-- **SSIM Structural Loss** ✅
-
----
 ```
 
-
-## 🙏 Acknowledgements
-
-This project is built upon [pix2pixHD](https://github.com/NVIDIA/pix2pixHD) by NVIDIA. We thank the authors for their excellent work.
-
 ---
-```
 
-## 🔗 Links
+## 📬 Contact
 
-- [pix2pixHD (base)](https://github.com/NVIDIA/pix2pixHD)
-- [SSIM paper](https://ece.uwaterloo.ca/~z70wang/publications/ssim.pdf)
+For further questions or access to the model weights, please contact:
 
----
-```
-📧 For questions, please contact: Liming He
-
+**Liming He**  
+📧 heliming@mail.neu.edu.cn
