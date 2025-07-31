@@ -77,11 +77,7 @@ This will translate SAR images (both snow-free and snow-covered) into optical im
   * Optical images: `O1` to `O6`
 
 Additionally, we provide 3 optical images under snow-covered conditions (`O4_snow` to `O6_snow`) as references to illustrate the actual degree of snow occlusion in the original scenes.
-
-
-
-
-
+---
 
 ## 🧪 Model Architecture Summary
 
