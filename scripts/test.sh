@@ -1,0 +1,1 @@
+python test.py --name Uragen_SAR-to-optical --no_instance --label_nc 0 --resize_or_crop none --dataroot ./datasets/Uragen

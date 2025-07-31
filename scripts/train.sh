@@ -1,0 +1,1 @@
+python train.py --name Uragen_SAR-to-optical --no_instance --label_nc 0  --resize_or_crop none --niter 50 --niter_decay 50 --dataroot ./datasets/Uragen --batchSize 16
