@@ -48,7 +48,6 @@ pip install -r requirements.txt
 ## 🚀 Testing
 
 
-
 Due to security concerns, the paired high-resolution SAR-optical image dataset used during the training of the C-HR-GAN model is not publicly available. If you require the trained model weights (.pth file), please contact the corresponding author. Once obtained, place the file in the following directory:
 
 ./checkpoints/Uragen_SAR-to-optical
@@ -76,7 +75,7 @@ This will translate SAR images (both snow-free and snow-covered) into optical im
 
 Additionally, we provide 3 optical images under snow-covered conditions (`O4_snow` to `O6_snow`) as references to illustrate the actual degree of snow occlusion in the original scenes.
 ---
-
+```
 ## 🧪 Model Architecture Summary
 
 ### Generator:
